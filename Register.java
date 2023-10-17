@@ -23,14 +23,12 @@ public class Register {
                     registerUserNumber = false;
                 }
             }
+        }
         while(registerUserNumber){
             listOfAccounts.add(new Account(userInputAccountNumber));
             System.out.println("Nytt konto registrerat!"+ "\n");
             break;
         }
-        }
-
-
     }
 
 //---------------------------------------------------------------//
