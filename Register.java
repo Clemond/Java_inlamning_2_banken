@@ -7,26 +7,27 @@ public class Register {
     ArrayList <Account> listOfAccounts = new ArrayList<>();
 
     public void addAccount(){ 
-        System.out.print("Skriv in kontonummer: ");
+        boolean registerUserNumber = true;
+        System.out.print("\n" + "Skriv in kontonummer: ");
         int userInputAccountNumber = myScanner.nextInt();
 
         if(listOfAccounts.size() == 0){
             listOfAccounts.add(new Account(userInputAccountNumber));
-            System.out.println("Nytt konto registrerat. (från första if:en)");
+            System.out.println("Nytt konto registrerat. (från första if:en)"+ "\n");
+            registerUserNumber = false;
         }
-        else{  
+        else {  
             for(int i = 0; i < listOfAccounts.size(); i++){
                 if(userInputAccountNumber == listOfAccounts.get(i).getAccountNumber()){
-                    System.out.println("kontot finns redan registrerat!");
-                    break;
-                }
-                else{
-                    listOfAccounts.add(new Account(userInputAccountNumber));
-                    System.out.println("Nytt konto registrerat!");
-                    break;
+                    System.out.println("kontot finns redan registrerat!"+ "\n");
+                    registerUserNumber = false;
                 }
             }
-
+        while(registerUserNumber){
+            listOfAccounts.add(new Account(userInputAccountNumber));
+            System.out.println("Nytt konto registrerat!"+ "\n");
+            break;
+        }
         }
 
 
