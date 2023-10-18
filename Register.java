@@ -63,7 +63,7 @@ public class Register {
     public void accountMenu(){
         boolean menyOn = true;
         boolean accountNotValid = true;
-        int activeAccountIndex;
+        int activeAccountIndex = 0;
 
         System.out.print("\n" + "Skriv in ditt kontonummer: ");
         int userInputAccountNumber = myScanner.nextInt();
@@ -91,6 +91,9 @@ public class Register {
             int userChoice = myScanner.nextInt();
 
             switch(userChoice){
+                case 3: 
+                    System.out.println("Saldo: " + listOfAccounts.get(activeAccountIndex).getAccountBalance() + "kr" + "\n");
+                 break;
                 case 4: 
                     System.out.println("\n" + "Tillbaka till huvudmenyn...");
                     menyOn = false;
