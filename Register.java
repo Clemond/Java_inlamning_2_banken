@@ -11,6 +11,7 @@ public class Register {
         System.out.print("\n" + "Skriv in kontonummer: ");
         int userInputAccountNumber = myScanner.nextInt();
 
+
         if(listOfAccounts.size() == 0){
             listOfAccounts.add(new Account(userInputAccountNumber));
             System.out.println("Nytt konto registrerat. (från första if:en)"+ "\n");
@@ -36,7 +37,7 @@ public class Register {
 
     public void printAllAccounts(){
 
-        System.out.println("Registrerade konton: ");
+        System.out.println("\n" + "Registrerade konton: ");
 
         for (int i = 0; i < listOfAccounts.size(); i++){
             System.out.println(listOfAccounts.get(i).getAccountNumber());
@@ -59,5 +60,49 @@ public class Register {
 
 //---------------------------------------------------------------//
 
+    public void accountMenu(){
+        boolean menyOn = true;
+        boolean accountNotValid = true;
+        int activeAccountIndex;
+
+        System.out.print("\n" + "Skriv in ditt kontonummer: ");
+        int userInputAccountNumber = myScanner.nextInt();
+
+        for(int i = 0; i < listOfAccounts.size(); i++){
+            if(userInputAccountNumber == listOfAccounts.get(i).accountNumber){
+                activeAccountIndex = i;
+                System.out.println("\n" + "Kontot finns registrerat på indexplats: " + activeAccountIndex);
+                System.out.println("Välkommen!" + "\n");
+                accountNotValid = false;
+            }
+        }
+        if(accountNotValid == true){
+            System.out.println("Kontot finns inte registrerat!");
+            menyOn = false;
+        }
+
+        while(menyOn){
+
+            System.out.println("**** KONTOMENY ****");
+            System.out.println("1. Ta ut pengar");
+            System.out.println("2. Sätt in pengar");
+            System.out.println("3. Visa saldo");
+            System.out.println("4. Avsluta");
+            int userChoice = myScanner.nextInt();
+
+            switch(userChoice){
+                case 4: 
+                    System.out.println("\n" + "Tillbaka till huvudmenyn...");
+                    menyOn = false;
+                 break;
+            }
+
+        }
+    }
+
+
+
+
+//---------------------------------------------------------------//
 
 }
