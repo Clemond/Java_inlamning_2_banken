@@ -83,16 +83,24 @@ public class Register {
 
         while(menyOn){
 
-            System.out.println("**** KONTOMENY ****");
+            System.out.println("\n" + "**** KONTOMENY ****");
             System.out.println("1. Ta ut pengar");
             System.out.println("2. Sätt in pengar");
             System.out.println("3. Visa saldo");
             System.out.println("4. Avsluta");
+            System.out.print("Ange menyval: ");
+
             int userChoice = myScanner.nextInt();
 
             switch(userChoice){
+                case 2:
+                    System.out.print("\n" +  "Hur mycket vill du sätta in på ditt konto?");
+                    int userDeposit = myScanner.nextInt();
+                    listOfAccounts.get(activeAccountIndex).deposit(userDeposit);
+                    System.out.println("Ditt nya saldo är: " + listOfAccounts.get(activeAccountIndex).getAccountBalance());
+                 break; 
                 case 3: 
-                    System.out.println("Saldo: " + listOfAccounts.get(activeAccountIndex).getAccountBalance() + "kr" + "\n");
+                    System.out.println("\n" +  "Saldo: " + listOfAccounts.get(activeAccountIndex).getAccountBalance() + "kr" + "\n");
                  break;
                 case 4: 
                     System.out.println("\n" + "Tillbaka till huvudmenyn...");

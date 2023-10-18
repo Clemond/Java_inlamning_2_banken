@@ -15,6 +15,10 @@ public class Account {
     public int getAccountBalance(){
         return this.balance;
     }
+    public int deposit(int userDeposit){
+        balance = balance + userDeposit;
+        return this.balance;
+    }
 
 
 }
