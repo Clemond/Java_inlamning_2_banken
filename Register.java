@@ -93,8 +93,20 @@ public class Register {
             int userChoice = myScanner.nextInt();
 
             switch(userChoice){
+                case 1:
+                    System.out.print("\n" + "Hur mycket vill du ta ut från ditt konton?: ");
+                    int userWithdrawl = myScanner.nextInt();
+                    if(userWithdrawl > listOfAccounts.get(activeAccountIndex).getAccountBalance()){
+                        System.out.println("!MEDGES EJ!");
+                        System.out.println("!FÖR LÅGT SALDO!");
+                    }
+                    else{
+                        listOfAccounts.get(activeAccountIndex).withdraw(userWithdrawl);
+                        System.out.println("Ditt nya saldo är:" + listOfAccounts.get(activeAccountIndex).getAccountBalance());
+                    }
+                 break;
                 case 2:
-                    System.out.print("\n" +  "Hur mycket vill du sätta in på ditt konto?");
+                    System.out.print("\n" +  "Hur mycket vill du sätta in på ditt konto?: ");
                     int userDeposit = myScanner.nextInt();
                     listOfAccounts.get(activeAccountIndex).deposit(userDeposit);
                     System.out.println("Ditt nya saldo är: " + listOfAccounts.get(activeAccountIndex).getAccountBalance());

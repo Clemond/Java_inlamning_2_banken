@@ -19,6 +19,10 @@ public class Account {
         balance = balance + userDeposit;
         return this.balance;
     }
+    public int withdraw(int userWithdrawl){
+        balance = balance - userWithdrawl;
+        return this.balance;
+    }
 
 
 }
