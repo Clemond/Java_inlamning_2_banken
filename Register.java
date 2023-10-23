@@ -11,10 +11,9 @@ public class Register {
         System.out.print("\n" + "Skriv in kontonummer: ");
         int userInputAccountNumber = myScanner.nextInt();
 
-
         if(listOfAccounts.size() == 0){
             listOfAccounts.add(new Account(userInputAccountNumber));
-            System.out.println("Nytt konto registrerat. (från första if:en)"+ "\n");
+            System.out.println("Nytt konto registrerat."+ "\n");
             registerUserNumber = false;
         }
         else {  
@@ -33,28 +32,13 @@ public class Register {
     }
 
 //---------------------------------------------------------------//
-
-
+        //Used to test out the program while it was built.
     public void printAllAccounts(){
 
         System.out.println("\n" + "Registrerade konton: ");
 
         for (int i = 0; i < listOfAccounts.size(); i++){
             System.out.println(listOfAccounts.get(i).getAccountNumber());
-        }
-    }
-
-//---------------------------------------------------------------//
-
-    public void showBalance(int accountNumber){
-
-        for(int i = 0; i < listOfAccounts.size(); i++){
-            if (accountNumber == listOfAccounts.get(i).getAccountNumber()){
-                System.out.println("Nuvarande saldo är: " + listOfAccounts.get(i).getAccountBalance());
-            }
-            else{
-                System.out.println("Kontot hittades inte!");
-            }
         }
     }
 
@@ -71,8 +55,6 @@ public class Register {
         for(int i = 0; i < listOfAccounts.size(); i++){
             if(userInputAccountNumber == listOfAccounts.get(i).accountNumber){
                 activeAccountIndex = i;
-                System.out.println("\n" + "Kontot finns registrerat på indexplats: " + activeAccountIndex);
-                System.out.println("Välkommen!" + "\n");
                 accountNotValid = false;
             }
         }
@@ -97,8 +79,7 @@ public class Register {
                     System.out.print("\n" + "Hur mycket vill du ta ut från ditt konton?: ");
                     int userWithdrawl = myScanner.nextInt();
                     if(userWithdrawl > listOfAccounts.get(activeAccountIndex).getAccountBalance()){
-                        System.out.println("!MEDGES EJ!");
-                        System.out.println("!FÖR LÅGT SALDO!");
+                        System.out.println("OBS För lågt saldo!");
                     }
                     else{
                         listOfAccounts.get(activeAccountIndex).withdraw(userWithdrawl);
@@ -122,10 +103,6 @@ public class Register {
 
         }
     }
-
-
-
-
 //---------------------------------------------------------------//
 
 }
