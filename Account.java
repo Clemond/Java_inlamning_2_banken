@@ -1,7 +1,7 @@
 public class Account {
 
     protected int accountNumber;
-    protected int balance = 0; 
+    protected double balance = 0; 
 
 //konstruktor
     public Account (int accountNumber){
@@ -11,14 +11,14 @@ public class Account {
     public int getAccountNumber(){
         return this.accountNumber;
     }
-    public int getAccountBalance(){
+    public double getAccountBalance(){
         return this.balance;
     }
-    public int deposit(int userDeposit){
+    public double deposit(double userDeposit){
         balance = balance + userDeposit;
         return this.balance;
     }
-    public int withdraw(int userWithdrawl){
+    public double withdraw(double userWithdrawl){
         balance = balance - userWithdrawl;
         return this.balance;
     }
